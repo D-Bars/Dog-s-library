@@ -1,0 +1,27 @@
+@use '../../styles/globalStyles/global.scss' as *;
+
+.wrapper{
+    @include box(100%, 0, auto, 2vw);
+    @include flex__box(column, center);
+}
+
+.h2{
+   @include text(180%, 600, $color2);
+}
+
+.ItemsList{
+    flex-wrap: wrap;
+    gap: 1vw 2%;
+
+    @include box(100%, 0, auto, 1vw);
+    @include flex__box(row, stretch);
+}
+.item{
+    outline: 1px solid $color3;
+    padding: 1vw 2.5%;
+    outline-offset: -1px;
+    border-radius: 20px;
+
+    @include box(49%, 2.5%, auto);
+    @include flex__box();
+}

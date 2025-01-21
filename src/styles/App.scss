@@ -1,0 +1,6 @@
+@use './globalStyles/global.scss' as *;
+
+.App{
+  @include box(100%, 2.5%, auto, 1vw);
+  @include flex__box(column, center);
+}

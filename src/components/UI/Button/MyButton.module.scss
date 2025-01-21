@@ -1,0 +1,24 @@
+@use '../../../styles/globalStyles/global.scss' as *;
+
+.MyBtn{
+    background-color: #3333;
+    padding: 0.5vw 1.5vw;
+    border-radius: 20px;
+    outline: 2px solid $color3;
+    outline-offset: -2px;
+    border: unset;
+    cursor: pointer;
+    transition: .4s;
+
+    @include text(135%, 600, #FFF);
+    
+    &:hover{
+        background-color: #3337;
+        text-shadow: 0 0 10px #FFF;
+    }
+    
+    &:active{
+        transform: scale(0.95);
+    }
+}
+
