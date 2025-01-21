@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchBox from './components/SearchBox';
 import ItemsList from './components/ItemsList';
 import style from './styles/App.scss';
@@ -6,6 +6,8 @@ import axios from 'axios';
 
 
 const App = () => {
+  const [posts, setPosts] = useState([]);
+
   const apiUrl = process.env.REACT_APP_API_URL;
   const apiKey = process.env.REACT_APP_API_KEY;
   const limit = process.env.REACT_APP_LIMIT;
@@ -18,13 +20,13 @@ const App = () => {
       }
     })
       .then(response => {
-        console.log(response.data);
+        setPosts(response.data);
       })
   }, [])
   return (
     <div className='App'>
       <SearchBox></SearchBox>
-      <ItemsList></ItemsList>
+      <ItemsList posts={posts}></ItemsList>
     </div>
   );
 };

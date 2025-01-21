@@ -16,12 +16,4 @@
     @include box(100%, 0, auto, 1vw);
     @include flex__box(row, stretch);
 }
-.item{
-    outline: 1px solid $color3;
-    padding: 1vw 2.5%;
-    outline-offset: -1px;
-    border-radius: 20px;
 
-    @include box(49%, 2.5%, auto);
-    @include flex__box();
-}

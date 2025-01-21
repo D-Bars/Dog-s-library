@@ -1,0 +1,47 @@
+@use '../../styles/globalStyles/global.scss' as *;
+
+.item{
+    gap: 5%;
+    padding: 1vw 2.5%;
+    border-radius: 20px;
+    outline: 1px solid $color3;
+    outline-offset: -1px;
+    cursor: pointer;
+    
+    @include box(100%, );
+    @include flex__box(row);
+    @include box(49%, 2.5%, 20vw);
+}
+
+.img_mask{
+    border-radius: 10px; 
+    @include img__mask(20%, #000);
+}
+
+.wrapper_img{
+    position: relative;
+    border-radius: 10px;
+    align-self: center;
+
+    @include img_box(50%, 18vw);
+
+    & img{
+        border-radius: 10px;
+    }
+}
+
+.dog_info{
+    @include text(100%, 800, #000);
+
+    & span{
+        @include text(110%, 600, #000);
+    }
+}
+
+.dog_info_box{
+    padding-top: 3vw;
+    gap: 1vw;
+    
+    @include box(45%);
+    @include flex__box(column, flex-start);
+}
