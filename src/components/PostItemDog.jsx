@@ -2,7 +2,6 @@ import React from 'react';
 import cl from './styles/PostItemDog.module.scss';
 
 const PostItemDog = ({ children }) => {
-    console.log(children);
     const dataArray = children.breeds[0];
     return (
         <div className={cl.item}>

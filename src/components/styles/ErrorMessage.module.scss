@@ -1,0 +1,7 @@
+@use '../../styles/globalStyles/global.scss' as *;
+
+.error_message{
+    margin-top: 2vw;
+
+    @include text(150%, 600, red);
+}
