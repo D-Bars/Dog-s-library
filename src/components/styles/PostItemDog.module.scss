@@ -34,7 +34,13 @@
     @include text(100%, 800, #000);
 
     & span{
+        padding-left: 0.5vw;
+
         @include text(110%, 600, #000);
+    }
+
+    & .info_not_found{ 
+        @include text(105%, 800, #000);
     }
 }
 

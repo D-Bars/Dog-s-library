@@ -17,7 +17,6 @@ const useFetchPosts = () => {
       }
     })
       .then(response => {
-        console.log(response);
         setPosts(response.data);
       })
       .catch((error) => {
@@ -25,8 +24,6 @@ const useFetchPosts = () => {
         console.error(error)
       });
   }, [])
-  console.log('post:' + posts);
-  console.log('er:' + error);
 
   return {posts, error};
 };
