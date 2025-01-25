@@ -8,8 +8,7 @@ const ItemsList = ({ posts }) => {
             <h2 className={cl.h2}>Dog's Library</h2>
             <div className={cl.ItemsList}>
                 {posts.map((post) =>
-                    <PostItemDog key={post.id}>{post}</PostItemDog>
-
+                    <PostItemDog key={post.id} post={post}></PostItemDog>
                 )}
             </div>
         </div>

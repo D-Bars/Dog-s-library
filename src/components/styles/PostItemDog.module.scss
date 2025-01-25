@@ -11,7 +11,7 @@
     @include box(49%, 0, 20vw);
 
     &:hover .item_content{
-        bottom: 2.5vw;
+        bottom: 3vw;
     }
 }
 
@@ -84,6 +84,10 @@
     @include flex__box(column, center, flex-end);
 
     & .wrapper_img{
-        @include img_box(3vw, 2vw);
+        @include img_box(3.2vw, 2.5vw);
+
+        & img{
+            filter: invert(1);
+        }
     }
 }
