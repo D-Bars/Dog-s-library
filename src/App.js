@@ -6,6 +6,7 @@ import ErrorMessage from './components/ErrorMessage';
 import useFetchPosts from './components/hooks/useFetchPosts';
 
 
+
 const App = () => {
   const {posts, error} = useFetchPosts();
 

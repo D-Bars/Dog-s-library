@@ -2,7 +2,7 @@ import React from 'react';
 import MoreImg from '../styles/assets/img/more.svg';
 import cl from './styles/PostItemDog.module.scss';
 
-const PostItemDog = ( {post} ) => {
+const PostItemDog = ({ post }) => {
     const dataArray = post.breeds[0];
     const dataNotFound = '--';
     return (

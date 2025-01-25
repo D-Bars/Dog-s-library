@@ -1,0 +1,33 @@
+@use '../../styles/globalStyles/global.scss' as *;
+
+.modal_block{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba( #000000,  0.5);
+    z-index: 990;
+
+    @include box(100vw, 0, 100dvh);
+    @include flex__box(row, center, center);
+}
+
+.modal_box{
+    padding: 1vw 2.5%;
+    overflow-y: scroll;
+    background-color: #FFF;
+    border-radius: 20px;
+
+    @include box(80%, 2.5%, 85dvh);
+    @include flex__box(row, flex-start, center);
+    
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}
+
+
+.dog_info_box{
+    gap: 2vw;
+
+    @include flex__box(column);
+}
