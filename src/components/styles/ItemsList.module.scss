@@ -11,7 +11,7 @@
 
 .ItemsList{
     flex-wrap: wrap;
-    gap: 1vw 2%;
+    gap: 2vw 2%;
 
     @include box(100%, 0, auto, 1vw);
     @include flex__box(row, stretch);

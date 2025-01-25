@@ -1,16 +1,33 @@
 @use '../../styles/globalStyles/global.scss' as *;
 
 .item{
-    gap: 5%;
-    padding: 1vw 2.5%;
-    border-radius: 20px;
+    position: relative;
     outline: 1px solid $color3;
-    outline-offset: -1px;
+    border-radius: 20px;
+    overflow: hidden;
     cursor: pointer;
     
-    @include box(100%, );
     @include flex__box(row);
-    @include box(49%, 2.5%, 20vw);
+    @include box(49%, 0, 20vw);
+
+    &:hover .item_content{
+        bottom: 2.5vw;
+    }
+}
+
+.item_content{
+    position: relative;
+    background-color: #d3d3d3;
+    border-radius: 20px;
+
+    bottom: 0;
+    padding: 1vw 2.5%;
+    gap: 5%;
+    z-index: 2;
+    transition: .6s;
+
+    @include flex__box(row);
+    @include box(100%, 2.5%);
 }
 
 .img_mask{
@@ -50,4 +67,23 @@
     
     @include box(45%);
     @include flex__box(column, flex-start);
+}
+
+.open_full_description{
+    position: absolute;
+    padding: 0.3vw 0;
+    bottom: 0vw;
+    left: 0;
+    outline: 1px solid $color3;
+    outline-offset: -1px;
+    background-color: $color3;
+    border-radius: 0 0 20px 20px;
+    z-index: 1;
+
+    @include box(100%, 0, 100%);
+    @include flex__box(column, center, flex-end);
+
+    & .wrapper_img{
+        @include img_box(3vw, 2vw);
+    }
 }
