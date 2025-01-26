@@ -1,27 +1,33 @@
 import React from 'react';
 import cl from '../styles/ModalItemDog.module.scss';
 
-const ModalItemDog = ({ props }) => {
+const ModalItemDog = ({ post }) => {
+    const dataArray = post.breeds[0];
+    console.log(dataArray);
+    const dataValidationCheck = (field) => {
+        //need add "if" for height & weight obj in dataArray
+        const fieldName = field.replace('_', ' ');
+        if (dataArray[field] && dataArray[field].length) {
+            return <div className={cl.field_info}>
+                        <div className={cl.field_info_name}>{fieldName}&nbsp;:</div>
+                        <span>{dataArray[field]}</span>
+                    </div>;
+        } else {
+            return 
+        }
+    };
     return (
         <div className={cl.modal_block}>
             <div className={cl.modal_box}>
-                <div className={cl.wrapper_img}><div className={cl.img_mask}></div><img  /></div>
+                <div className={cl.wrapper_img}><img src={post.url} /></div>
                 <div className={cl.dog_info_box}>
-                    <div className={`${cl.dog_name} ${cl.dog_info}`}>NAME :
-                        {/* <span>{dataArray.name}</span> */}
-                    </div>
-                    <div className={`${cl.dog_bred_for} ${cl.dog_info}`}>BRED FOR :
-                        {/* {dataArray?.bred_for?.length
-                            ? <span>{dataArray.bred_for}</span>
-                            : <span className={cl.info_not_found}>{dataNotFound}</span>
-                        } */}
-                    </div>
-                    <div className={`${cl.dog_breed_group} ${cl.dog_info}`}>BREED GROUP :
-                        {/* {dataArray?.breed_group?.length
-                            ? <span>{dataArray.breed_group}</span>
-                            : <span className={cl.info_not_found}>{dataNotFound}</span>
-                        } */}
-                    </div>
+                    {dataValidationCheck('name')}
+                    {dataValidationCheck('bred_for')}
+                    {dataValidationCheck('breed_group')}
+                    {dataValidationCheck('life_span')}
+                    {dataValidationCheck('temperament')}
+                    {dataValidationCheck('weight')}
+                    {dataValidationCheck('height')}
                 </div>
             </div>
         </div>
