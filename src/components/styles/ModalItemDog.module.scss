@@ -39,7 +39,7 @@
 
 
 .dog_info_box{
-    padding-top: 3vw;
+    padding-top: 2vw;
     gap: 1vw;
 
     @include box(45%);
@@ -47,13 +47,12 @@
 }
 
 .field_info{
-    gap: 0.5vw;
+    gap: 0.3vw;
 
     @include box(100%);
-    @include flex__box(row);
+    @include flex__box(column);
 
     & .field_info_name{
-        height: 1rem;
         text-transform: uppercase;
 
         @include text(110%, 800, #000);

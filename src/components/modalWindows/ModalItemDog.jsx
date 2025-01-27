@@ -3,19 +3,40 @@ import cl from '../styles/ModalItemDog.module.scss';
 
 const ModalItemDog = ({ post }) => {
     const dataArray = post.breeds[0];
-    console.log(dataArray);
-    const dataValidationCheck = (field) => {
-        //need add "if" for height & weight obj in dataArray
-        const fieldName = field.replace('_', ' ');
-        if (dataArray[field] && dataArray[field].length) {
-            return <div className={cl.field_info}>
-                        <div className={cl.field_info_name}>{fieldName}&nbsp;:</div>
-                        <span>{dataArray[field]}</span>
-                    </div>;
+
+    const dataValidationCheck = (keyStr) => {
+        const keyName = keyStr.replace('_', ' ');
+        const data = dataArray[keyStr];
+        if (typeof dataArray[keyStr] === 'object') {
+            return setNestedData(data, keyName);
         } else {
-            return 
+            if (dataArray[keyStr] && dataArray[keyStr].length) {
+                return setObjData(data, keyName);
+            }
         }
     };
+
+    const setNestedData = (nestedData, keyName) => {
+        return (
+            <div className={cl.field_info}>
+                <div className={cl.field_info_name}>{keyName}&nbsp;:</div>
+                {Object.entries(nestedData).map(([key, value]) => (
+                    <div key={key} className={cl.nested_field}>
+                        <span className={cl.nested_key}>{key}&nbsp;:</span>
+                        <span>&nbsp;{value}</span>
+                    </div>
+                ))}
+            </div>
+        );
+    };
+
+    const setObjData = (objData, keyName) => {
+        return <div className={cl.field_info}>
+            <div className={cl.field_info_name}>{keyName}&nbsp;:</div>
+            <span>{objData}</span>
+        </div>;
+    }
+    
     return (
         <div className={cl.modal_block}>
             <div className={cl.modal_box}>
