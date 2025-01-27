@@ -6,17 +6,15 @@ import ModalItemDog from './modalWindows/ModalItemDog';
 const ItemsList = ({ posts }) => {
     const [post, setPost] = useState({})
     const [modal, setModal] = useState(false);
-    const [initializedDependencies, setInitializedDependencies] = useState(false);
-    const getPost = (post) => {
-        setPost(post);
+    const getPost = (selectedPost) => {
+        setPost(selectedPost);
+        setModal(true);
     } 
-    const toggleModal = useEffect(()=>{
-        if(initializedDependencies){
-            setModal(!modal);
-        }else{
-            setInitializedDependencies(true);
-        }
-    },[post])
+    const closeModal = () => {
+        setPost({});
+        setModal(false);
+    }
+    console.log(post);
     return (
         <div className={cl.wrapper}>
             <h2 className={cl.h2}>Dog's Library</h2>
@@ -31,7 +29,7 @@ const ItemsList = ({ posts }) => {
                 )}
             </div>
             {modal &&
-                <ModalItemDog post={post}></ModalItemDog>
+                <ModalItemDog post={post} onClose={closeModal}></ModalItemDog>
             }
         </div>
     );

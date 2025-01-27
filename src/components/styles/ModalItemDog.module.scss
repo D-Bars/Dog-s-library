@@ -4,11 +4,18 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba( #000000,  0.5);
     z-index: 990;
-
+    
     @include box(100vw, 0, 100dvh);
     @include flex__box(row, center, center);
+}
+
+.modal_mask{
+    position: absolute;
+    background-color: rgba( #000000,  0.5);
+    z-index: 1;
+
+    @include box(100%, 0, 100%);
 }
 
 .modal_box{
@@ -18,6 +25,7 @@
     background-color: #FFF;
     border-radius: 20px;
     gap: 3%;
+    z-index: 2;
 
     @include box(80%, 2.5%, 85dvh);
     @include flex__box(row, flex-start, center);
