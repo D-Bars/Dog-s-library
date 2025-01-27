@@ -27,6 +27,10 @@
     }
 }
 
+.closer{
+    @include closer__btn();
+}
+
 .wrapper_img{
     border-radius: 20px;
 

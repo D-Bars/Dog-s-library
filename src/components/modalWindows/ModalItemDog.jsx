@@ -40,6 +40,7 @@ const ModalItemDog = ({ post }) => {
     return (
         <div className={cl.modal_block}>
             <div className={cl.modal_box}>
+                <div className={cl.closer}></div>
                 <div className={cl.wrapper_img}><img src={post.url} /></div>
                 <div className={cl.dog_info_box}>
                     {dataValidationCheck('name')}
