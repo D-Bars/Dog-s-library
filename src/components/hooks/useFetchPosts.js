@@ -4,6 +4,7 @@ import axios from 'axios';
 const useFetchPosts = () => {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(false);
+  const [postsLoading, setPostsLoading] = useState(true);
 
   const apiUrl = process.env.REACT_APP_API_URL;
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -17,6 +18,7 @@ const useFetchPosts = () => {
       }
     })
       .then(response => {
+        setPostsLoading(false)
         setPosts(response.data);
       })
       .catch((error) => {
@@ -25,6 +27,6 @@ const useFetchPosts = () => {
       });
   }, [])
 
-  return {posts, error};
+  return {posts, error, postsLoading};
 };
 export default useFetchPosts;

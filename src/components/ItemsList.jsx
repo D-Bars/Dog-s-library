@@ -14,6 +14,7 @@ const ItemsList = ({ posts }) => {
         setModal(false);
         setPost(null)
     }
+    
     return (
         <div className={cl.wrapper}>
             <h2 className={cl.h2}>Dog's Library</h2>
@@ -28,7 +29,7 @@ const ItemsList = ({ posts }) => {
                 )}
             </div>
             {modal && post &&
-                <ModalItemDog post={post} onClose={closeModal}></ModalItemDog>
+                <ModalItemDog post={post} onClose={closeModal} modal={modal}></ModalItemDog>
             }
         </div>
     );
