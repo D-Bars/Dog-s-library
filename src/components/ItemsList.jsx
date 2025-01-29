@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import cl from './styles/ItemsList.module.scss';
 import PostItemDog from './PostItemDog';
-import ModalItemDog from './modalWindows/ModalItemDog';
+import ModalItemDog from './UI/modalWindows/ModalItemDog';
 
 const ItemsList = ({ posts }) => {
     const [post, setPost] = useState(null)

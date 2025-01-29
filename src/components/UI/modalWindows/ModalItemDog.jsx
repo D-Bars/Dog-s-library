@@ -1,5 +1,5 @@
 import React from 'react';
-import cl from '../styles/ModalItemDog.module.scss';
+import cl from '../../styles/ModalItemDog.module.scss';
 
 const ModalItemDog = ({ post, onClose }) => {
     const dataArray = post.breeds[0];
