@@ -2,14 +2,11 @@ import React from 'react';
 import MoreImg from '../styles/assets/img/more.svg';
 import cl from './styles/PostItemDog.module.scss';
 
-const PostItemDog = ({ post, getPost }) => {
-    const handlePost = () => {
-        getPost(post);
-    }
+const PostItemDog = ({ post, openModal }) => {
     const dataArray = post.breeds[0];
     const dataNotFound = '--';
     return (
-        <div className={cl.item} onClick={handlePost}>
+        <div className={cl.item} onClick={()=>openModal(post)}>
             <div className={cl.item_content}>
                 <div className={cl.wrapper_img}><div className={cl.img_mask}></div><img src={post.url} /></div>
                 <div className={cl.dog_info_box}>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cl from '../styles/ModalItemDog.module.scss';
 
 const ModalItemDog = ({ post, onClose }) => {

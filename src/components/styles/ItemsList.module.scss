@@ -1,15 +1,15 @@
 @use '../../styles/globalStyles/global.scss' as *;
 
-.wrapper{
+.wrapper {
     @include box(100%, 0, auto, 2vw);
     @include flex__box(column, center);
 }
 
-.h2{
-   @include text(180%, 600, $color2);
+.h2 {
+    @include text(180%, 600, $color2);
 }
 
-.ItemsList{
+.ItemsList {
     flex-wrap: wrap;
     gap: 2vw 2%;
 

@@ -1,24 +1,24 @@
 @use '../../styles/globalStyles/global.scss' as *;
 
-.modal_block{
+.modal_block {
     position: fixed;
-    top: 0;
+    top: 0dvh;
     left: 0;
     z-index: 990;
-    
+
     @include box(100vw, 0, 100dvh);
     @include flex__box(row, center, center);
 }
 
-.modal_mask{
+.modal_mask {
     position: absolute;
-    background-color: rgba( #000000,  0.5);
+    background-color: rgba(#000000, 0.5);
     z-index: 1;
 
     @include box(100%, 0, 100%);
 }
 
-.modal_box{
+.modal_box {
     position: relative;
     padding: 1vw 2.5%;
     overflow-y: scroll;
@@ -29,28 +29,28 @@
 
     @include box(80%, 2.5%, 85dvh);
     @include flex__box(row, flex-start, center);
-    
-    &::-webkit-scrollbar{
+
+    &::-webkit-scrollbar {
         display: none;
     }
 }
 
-.closer{
+.closer {
     @include closer__btn();
 }
 
-.wrapper_img{
+.wrapper_img {
     border-radius: 20px;
 
     @include img_box(50%, auto);
 
-    & img{
+    & img {
         border-radius: 20px;
     }
 }
 
 
-.dog_info_box{
+.dog_info_box {
     padding-top: 2vw;
     gap: 1vw;
 
@@ -58,19 +58,19 @@
     @include flex__box(column);
 }
 
-.field_info{
+.field_info {
     gap: 0.3vw;
 
     @include box(100%);
     @include flex__box(column);
 
-    & .field_info_name{
+    & .field_info_name {
         text-transform: uppercase;
 
         @include text(110%, 800, #000);
     }
 
-    & span{
+    & span {
         display: inline-block;
         letter-spacing: 2px;
 
