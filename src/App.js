@@ -10,7 +10,6 @@ import Loader from './components/UI/Loader/Loader';
 
 const App = () => {
   const { posts, error, postsLoading } = useFetchPosts();
-  console.log(postsLoading);
 
   return (
     <div className='App'>

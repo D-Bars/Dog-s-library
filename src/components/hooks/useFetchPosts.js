@@ -12,21 +12,26 @@ const useFetchPosts = () => {
   const has_breeds = process.env.REACT_APP_HAS_BREEDS;
 
   useEffect(() => {
-    axios.get(`${apiUrl}?has_breeds=${has_breeds}&limit=${limit}`, {
-      headers: {
-        'x-api-key': apiKey,
-      }
-    })
-      .then(response => {
-        setPostsLoading(false)
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${apiUrl}?has_breeds=${has_breeds}&limit=${limit}`, {
+          headers: {
+            'x-api-key': apiKey,
+          }
+        });
         setPosts(response.data);
-      })
-      .catch((error) => {
+      }
+      catch (error) {
         setError(true);
         console.error(error)
-      });
+      }
+      finally {
+        setPostsLoading(false)
+      }
+    }
+    fetchData();
   }, [])
 
-  return {posts, error, postsLoading};
+  return { posts, error, postsLoading };
 };
 export default useFetchPosts;
