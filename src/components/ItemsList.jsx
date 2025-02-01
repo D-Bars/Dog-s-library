@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import cl from './styles/ItemsList.module.scss';
 import PostItemDog from './PostItemDog';
 import ModalItemDog from './UI/modalWindows/ModalItemDog';
@@ -10,12 +10,15 @@ const ItemsList = ({ posts }) => {
     const [modal, setModal] = useState(false);
     const [limitPosts, setLimitPosts] = useState(10);
     const [page, setPage] = useState(1);
+    const postsBlockRef = useRef(null);
 
     const changePage = (newPage) => {
         setPage(newPage);
+        postsBlockRef.current.scrollIntoView({ behavior: 'smooth' });
     }
 
     const currentPosts = paginatePosts(posts, limitPosts, page);
+
     
     const openModal = (selectedPost) => {
         setPost(selectedPost);
@@ -27,7 +30,10 @@ const ItemsList = ({ posts }) => {
     }
 
     return (
-        <div className={cl.wrapper}>
+        <div 
+        ref={postsBlockRef}
+        className={cl.wrapper}
+        >
             <h2 className={cl.h2}>Dog's Library</h2>
             <div className={cl.ItemsList}>
                 {currentPosts.map((post) =>
