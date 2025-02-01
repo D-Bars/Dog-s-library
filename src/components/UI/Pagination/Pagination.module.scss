@@ -1,0 +1,29 @@
+@use '../../../styles/globalStyles/global.scss' as *;
+
+.pagination_block {
+    gap: 0.3vw;
+
+    @include box(100%, 0, auto, 3vw);
+    @include flex__box(row, flex-start, center);
+
+    & .pagination__page {
+        border-radius: 10px;
+        position: relative;
+        background-color: $color2;
+        padding: 0.5vw 1vw;
+        cursor: pointer;
+        transition: .4s;
+
+        @include text(120%, 600, #000);
+
+        &:hover {
+            top: -0.1vw;
+            background-color: $color3;
+        }
+    }
+
+    & .pagination__page__active {
+        top: -0.1vw;
+        background-color: $color3;
+    }
+}
