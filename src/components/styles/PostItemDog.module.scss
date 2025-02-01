@@ -30,6 +30,15 @@
     @include box(100%, 2.5%);
 }
 
+.paw_el{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(20deg) scale(1.1);
+
+    @include img_box(100%, 100%);
+}
+
 .img_mask{
     border-radius: 10px; 
     @include img__mask(20%, #000);

@@ -54,7 +54,6 @@ const ItemsList = ({ posts }) => {
                 limit={limitPosts}
                 onClick={changePage}
             >
-
             </Pagination>
         </div>
     );
