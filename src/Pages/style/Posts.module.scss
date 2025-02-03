@@ -1,0 +1,8 @@
+@use '../../styles/globalStyles/global.scss' as *;
+
+.posts_block{
+    gap: 0.5vw;
+    
+    @include box(100%);
+    @include flex__box(column, center, center);
+}
