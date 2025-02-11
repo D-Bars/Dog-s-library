@@ -1,7 +1,0 @@
-@use '../../styles/globalStyles/global.scss' as *;
-
-
-.SearchBox{
-    gap: 0.5vw;
-    @include flex__box(row, center, center);
-}
