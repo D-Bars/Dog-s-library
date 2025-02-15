@@ -2,7 +2,6 @@ import React from 'react';
 import cl from './MySelect.module.scss'
 
 const MySelect = ({ options, defaultVal, value, onChange }) => {
-    // console.log(value)
     return (
         <select
             value={value}
