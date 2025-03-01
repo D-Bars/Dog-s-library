@@ -11,6 +11,7 @@ import MySelect from '../components/UI/Select/MySelect';
 
 const Posts = () => {
     const { posts, error, postsLoading } = useFetchPosts();
+    console.log(postsLoading);
 
     const [limitPosts, setLimitPosts] = useState(10);
     const [page, setPage] = useState(1);
@@ -29,7 +30,6 @@ const Posts = () => {
         if (!selectedSort) return posts;
 
         return [...posts].sort((a, b) => {
-            console.log(1);
             const aValue = a.breeds?.[0]?.[selectedSort] ?? '';
             const bValue = b.breeds?.[0]?.[selectedSort] ?? '';
             return aValue.localeCompare(bValue);
