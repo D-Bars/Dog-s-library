@@ -11,7 +11,6 @@ import MySelect from '../components/UI/Select/MySelect';
 
 const Posts = () => {
     const { posts, error, postsLoading } = useFetchPosts();
-    console.log(postsLoading);
 
     const [limitPosts, setLimitPosts] = useState(10);
     const [page, setPage] = useState(1);
@@ -34,7 +33,7 @@ const Posts = () => {
             const bValue = b.breeds?.[0]?.[selectedSort] ?? '';
             return aValue.localeCompare(bValue);
         });
-    }, [posts, limitPosts, selectedSort]);
+    }, [posts, selectedSort]);
 
     const postsBlockRef = useRef(null);
 
@@ -45,6 +44,13 @@ const Posts = () => {
 
     const paginationPosts = paginatePosts(sortedPosts, limitPosts, page);
 
+    const searchingPosts = (query) => {
+        const searchedPosts = posts.filter(item => {
+            item.breeds[0].name.toLowerCase().includes(query);
+        })
+        return searchedPosts;
+    }
+
     return (
         <div
             ref={postsBlockRef}
@@ -53,7 +59,10 @@ const Posts = () => {
             <div
                 className={cl.control_box}
             >
-                <MyInput placeholder='search...' />
+                <MyInput
+                    placeholder='search...'
+                    callback={searchingPosts}
+                />
                 <MySelect
                     value={selectedSort}
                     onChange={sortPosts}
@@ -84,16 +93,18 @@ const Posts = () => {
                 error ? (
                     <ErrorMessage>There was an error loading data. Please try again later.</ErrorMessage>
                 ) : (
-                    <PostsItemsList posts={paginationPosts}></PostsItemsList>
+                    <>
+                        <PostsItemsList posts={paginationPosts}></PostsItemsList>
+                        <Pagination
+                            totalCount={posts.length}
+                            page={page}
+                            limit={limitPosts}
+                            onClick={changePage}
+                        >
+                        </Pagination>
+                    </>
                 )
             }
-            <Pagination
-                totalCount={posts.length}
-                page={page}
-                limit={limitPosts}
-                onClick={changePage}
-            >
-            </Pagination>
         </div>
     );
 };
