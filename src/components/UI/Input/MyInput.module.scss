@@ -1,6 +1,7 @@
 @use '../../../styles/globalStyles/global.scss' as *;
 
 .MyInput {
+    width: 100%;
     background-color: #3333;
     padding: 0.5vw 1.5vw;
     border-radius: 20px;

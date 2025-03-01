@@ -6,3 +6,34 @@
     @include box(100%);
     @include flex__box(column, center, center);
 }
+
+
+.control_box{
+    width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1vw;
+}
+
+.select_container{
+    width: 40%;
+    display: flex;
+    background-color: #3333;
+    align-items: center;
+    outline: 2px solid $color3;
+    outline-offset: -2px;
+    border-radius: 20px;
+    justify-content: space-between;
+
+    & .select_name{
+        padding-left: 2.5%;
+        cursor: default;
+        color: #FFF;
+    }
+
+    & select{
+        background-color: unset;
+        padding: 0.5vw 10%;
+    }
+}
