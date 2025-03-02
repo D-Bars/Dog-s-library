@@ -33,7 +33,6 @@ const Posts = () => {
             )
             : posts;
 
-        console.log(filteredPosts);
         if (!selectedSort) return filteredPosts;
 
         return [...filteredPosts].sort((a, b) => {
@@ -43,16 +42,6 @@ const Posts = () => {
         });
     }, [selectedSort, posts, searchQuery])
 
-    // const sortedPosts = useMemo(() => {
-    //     if (!selectedSort) return posts;
-
-    //     return [...posts].sort((a, b) => {
-    //         const aValue = a.breeds?.[0]?.[selectedSort] ?? '';
-    //         const bValue = b.breeds?.[0]?.[selectedSort] ?? '';
-    //         return aValue.localeCompare(bValue);
-    //     });
-    // }, [posts, selectedSort]);
-
     const postsBlockRef = useRef(null);
 
     const changePage = (newPage) => {
@@ -60,15 +49,8 @@ const Posts = () => {
         postsBlockRef.current.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // const searchingPosts = (query) => {
-    //     const searchedPosts = posts.filter(item => {
-    //         item.breeds[0].name.toLowerCase().includes(query.toLowerCase());
-    //     })
-    //     return searchedPosts;
-    // }
-
     const paginationPosts = paginatePosts(sortedAndSearchedPosts, limitPosts, page);
-
+ console.log(paginationPosts);
 
     return (
         <div
@@ -116,7 +98,7 @@ const Posts = () => {
                     <>
                         <PostsItemsList posts={paginationPosts}></PostsItemsList>
                         <Pagination
-                            totalCount={posts.length}
+                            totalCount={sortedAndSearchedPosts.length}
                             page={page}
                             limit={limitPosts}
                             onClick={changePage}

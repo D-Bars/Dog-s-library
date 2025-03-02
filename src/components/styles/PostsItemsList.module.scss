@@ -17,3 +17,9 @@
     @include flex__box(row, stretch);
 }
 
+.not_found_box{
+    @include text(170%, 600, red);
+    @include box(100%, 0, 40vh);
+    @include flex__box(row, center, center);
+}
+
