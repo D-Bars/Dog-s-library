@@ -15,6 +15,7 @@ const Posts = () => {
     const [limitPosts, setLimitPosts] = useState(10);
     const [page, setPage] = useState(1);
     const [selectedSort, setSelectedSort] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
 
     const sortPosts = (sort) => {
         setSelectedSort(sort);
@@ -25,15 +26,32 @@ const Posts = () => {
         setPage(1);
     }
 
-    const sortedPosts = useMemo(() => {
-        if (!selectedSort) return posts;
+    const sortedAndSearchedPosts = useMemo(() => {
+        const filteredPosts = searchQuery
+            ? posts.filter(item => 
+                item.breeds[0].name.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+            : posts;
 
-        return [...posts].sort((a, b) => {
+        console.log(filteredPosts);
+        if (!selectedSort) return filteredPosts;
+
+        return [...filteredPosts].sort((a, b) => {
             const aValue = a.breeds?.[0]?.[selectedSort] ?? '';
             const bValue = b.breeds?.[0]?.[selectedSort] ?? '';
             return aValue.localeCompare(bValue);
         });
-    }, [posts, selectedSort]);
+    }, [selectedSort, posts, searchQuery])
+
+    // const sortedPosts = useMemo(() => {
+    //     if (!selectedSort) return posts;
+
+    //     return [...posts].sort((a, b) => {
+    //         const aValue = a.breeds?.[0]?.[selectedSort] ?? '';
+    //         const bValue = b.breeds?.[0]?.[selectedSort] ?? '';
+    //         return aValue.localeCompare(bValue);
+    //     });
+    // }, [posts, selectedSort]);
 
     const postsBlockRef = useRef(null);
 
@@ -42,14 +60,15 @@ const Posts = () => {
         postsBlockRef.current.scrollIntoView({ behavior: 'smooth' });
     }
 
-    const paginationPosts = paginatePosts(sortedPosts, limitPosts, page);
+    // const searchingPosts = (query) => {
+    //     const searchedPosts = posts.filter(item => {
+    //         item.breeds[0].name.toLowerCase().includes(query.toLowerCase());
+    //     })
+    //     return searchedPosts;
+    // }
 
-    const searchingPosts = (query) => {
-        const searchedPosts = posts.filter(item => {
-            item.breeds[0].name.toLowerCase().includes(query);
-        })
-        return searchedPosts;
-    }
+    const paginationPosts = paginatePosts(sortedAndSearchedPosts, limitPosts, page);
+
 
     return (
         <div
@@ -61,7 +80,8 @@ const Posts = () => {
             >
                 <MyInput
                     placeholder='search...'
-                    callback={searchingPosts}
+                    value={searchQuery}
+                    onChange={(e) => { setSearchQuery(e.target.value) }}
                 />
                 <MySelect
                     value={selectedSort}
