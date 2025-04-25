@@ -14,15 +14,18 @@
 
 
 .control_box{
-    width: 30%;
+    width: 40%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     gap: 1vw;
 
     @media screen and (max-width: 800px) {
         width: 80%;
-        align-items: center;
+    }
+
+    & input{
+        width: 80%;
     }
 }
 
@@ -43,13 +46,14 @@
 
     & .select_name{
         padding-left: 2.5%;
+        text-align: center;
         cursor: default;
         color: #FFF;
+        font-size: clamp(1em, 1vw, 1vw);
 
         @media screen and (max-width: 800px) {
-            text-align: center;
             padding-left: 3%;
-            font-size: 3.5vw;
+            align-self: center;
         }
     }
 
