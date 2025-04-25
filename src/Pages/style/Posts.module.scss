@@ -37,7 +37,7 @@
     justify-content: space-between;
 
     @media screen and (max-width: 800px) {
-        width: 50%;
+        width: auto;
         align-items: stretch;
     }
 
@@ -56,5 +56,11 @@
     & select{
         background-color: unset;
         padding: 0.5vw 10%;
+
+        @media screen and (max-width: 800px) {
+            padding: 2vw 0;
+            padding-left: 3%;
+            border-radius: 0px 20px 20px 0px;
+        }
     }
 }
