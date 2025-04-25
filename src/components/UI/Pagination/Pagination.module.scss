@@ -6,6 +6,11 @@
     @include box(100%, 0, auto, 3vw);
     @include flex__box(row, flex-start, center);
 
+    @media screen and (max-width: 800px) {
+        gap: 1vw;
+        flex-wrap: wrap;
+    }
+
     & .pagination__page {
         border-radius: 10px;
         position: relative;
@@ -19,6 +24,10 @@
         &:hover {
             top: -0.1vw;
             background-color: $color3;
+        }
+
+        @media screen and (max-width: 800px) {
+            padding: 1.5vw 3vw;
         }
     }
 

@@ -1,21 +1,25 @@
 @use '../../styles/globalStyles/global.scss' as *;
 
-.item{
+.item {
     position: relative;
     outline: 1px solid $color3;
     border-radius: 20px;
     overflow: hidden;
     cursor: pointer;
-    
+
     @include flex__box(row);
     @include box(49%, 0, 20vw);
 
-    &:hover .item_content{
+    &:hover .item_content {
         bottom: 3vw;
+    }
+
+    @media screen and (max-width: 800px) {
+        height: 40vw;
     }
 }
 
-.item_content{
+.item_content {
     position: relative;
     background-color: #d3d3d3;
     border-radius: 20px;
@@ -28,9 +32,15 @@
 
     @include flex__box(row);
     @include box(100%, 2.5%);
+
+    @media screen and (max-width: 800px) {
+        align-items: center;
+        width: 95%;
+        padding: 2.5vw 2.5%;
+    }
 }
 
-.paw_el{
+.paw_el {
     position: absolute;
     top: 0;
     left: 0;
@@ -39,46 +49,50 @@
     @include img_box(100%, 100%);
 }
 
-.img_mask{
-    border-radius: 10px; 
+.img_mask {
+    border-radius: 10px;
     @include img__mask(20%, #000);
 }
 
-.wrapper_img{
+.wrapper_img {
     position: relative;
     border-radius: 10px;
     align-self: center;
 
     @include img_box(50%, 18vw);
 
-    & img{
+    @media screen and (max-width: 800px) {
+        height: 95%;
+    }
+
+    & img {
         border-radius: 10px;
     }
 }
 
-.dog_info{
+.dog_info {
     @include text(100%, 800, #000);
 
-    & span{
+    & span {
         padding-left: 0.5vw;
 
         @include text(110%, 600, #000);
     }
 
-    & .info_not_found{ 
+    & .info_not_found {
         @include text(105%, 800, #000);
     }
 }
 
-.dog_info_box{
+.dog_info_box {
     padding-top: 3vw;
     gap: 1vw;
-    
+
     @include box(45%);
     @include flex__box(column, flex-start);
 }
 
-.open_full_description{
+.open_full_description {
     position: absolute;
     padding: 0.3vw 0;
     bottom: 0vw;
@@ -92,10 +106,10 @@
     @include box(100%, 0, 100%);
     @include flex__box(column, center, flex-end);
 
-    & .wrapper_img{
+    & .wrapper_img {
         @include img_box(3.2vw, 2.5vw);
 
-        & img{
+        & img {
             filter: invert(1);
         }
     }

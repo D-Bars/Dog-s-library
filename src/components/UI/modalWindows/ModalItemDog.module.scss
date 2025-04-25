@@ -34,16 +34,33 @@
     &::-webkit-scrollbar {
         display: none;
     }
+
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 5vw;
+        width: 95%;
+        padding: 0 2.5%;
+    }
 }
 
 .closer {
     @include closer__btn();
+
+    @media screen and (max-width: 800px) {
+        right: 2.5vw;
+        top: 1.5vw;
+    }
 }
 
 .wrapper_img {
     border-radius: 20px;
 
     @include img_box(50%, auto);
+
+    @media screen and (max-width: 800px) {
+        margin-top: 15vw;
+    }
 
     & img {
         border-radius: 20px;
@@ -57,13 +74,24 @@
 
     @include box(45%);
     @include flex__box(column);
+
+    @media screen and (max-width: 800px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2vw 5%;
+        padding-bottom: 5vw;
+    }
 }
 
 .field_info {
     gap: 0.3vw;
-
+    
     @include box(100%);
     @include flex__box(column);
+    
+    @media screen and (max-width: 800px) {
+        width: 45%;
+    }
 
     & .field_info_name {
         text-transform: uppercase;

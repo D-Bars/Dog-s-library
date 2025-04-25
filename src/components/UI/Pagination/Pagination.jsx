@@ -3,7 +3,6 @@ import cl from './Pagination.module.scss';
 import { getPagesArray, getPagesCount } from '../../../utils/pages';
 
 const Pagination = ({ totalCount, page, limit, onClick }) => {
-    console.log(totalCount);
     let pagesCount = getPagesCount(totalCount, limit);
     let pagesArray = getPagesArray(pagesCount);
     return (

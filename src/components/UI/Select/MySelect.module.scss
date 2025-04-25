@@ -17,5 +17,9 @@
     &:hover {
         background-color: #3337;
     }
+
+    @media screen and (max-width: 800px) {
+        padding: 1.5vw 3%;
+    }
 }
 

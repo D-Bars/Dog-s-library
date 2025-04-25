@@ -50,7 +50,6 @@ const Posts = () => {
     }
 
     const paginationPosts = paginatePosts(sortedAndSearchedPosts, limitPosts, page);
- console.log(paginationPosts);
 
     return (
         <div
@@ -61,7 +60,7 @@ const Posts = () => {
                 className={cl.control_box}
             >
                 <MyInput
-                    placeholder='search...'
+                    placeholder='search by name ...'
                     value={searchQuery}
                     onChange={(e) => { setSearchQuery(e.target.value) }}
                 />

@@ -5,6 +5,11 @@
     
     @include box(100%);
     @include flex__box(column, center, center);
+
+    @media screen and (max-width: 800px) {
+        width: 95%;
+        padding: 5vw 2.5%;
+    }
 }
 
 
@@ -14,6 +19,11 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 1vw;
+
+    @media screen and (max-width: 800px) {
+        width: 80%;
+        align-items: center;
+    }
 }
 
 .select_container{
@@ -26,10 +36,21 @@
     border-radius: 20px;
     justify-content: space-between;
 
+    @media screen and (max-width: 800px) {
+        width: 50%;
+        align-items: stretch;
+    }
+
     & .select_name{
         padding-left: 2.5%;
         cursor: default;
         color: #FFF;
+
+        @media screen and (max-width: 800px) {
+            text-align: center;
+            padding-left: 3%;
+            font-size: 3.5vw;
+        }
     }
 
     & select{
