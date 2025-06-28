@@ -19,6 +19,7 @@ const Posts = () => {
 
     const sortPosts = (sort) => {
         setSelectedSort(sort);
+        setPage(1);
     }
 
     const limitingPosts = (limit) => {
@@ -62,7 +63,7 @@ const Posts = () => {
                 <MyInput
                     placeholder='search by name ...'
                     value={searchQuery}
-                    onChange={(e) => { setSearchQuery(e.target.value) }}
+                    onChange={(e) => { setSearchQuery(e.target.value); setPage(1); }}
                 />
                 <MySelect
                     value={selectedSort}
