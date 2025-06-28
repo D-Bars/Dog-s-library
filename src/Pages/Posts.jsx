@@ -21,14 +21,14 @@ const Posts = () => {
         setSelectedSort(sort);
     }
 
-    const limitingPosts = (limitPosts) => {
-        setLimitPosts(limitPosts);
+    const limitingPosts = (limit) => {
+        setLimitPosts(Number(limit));
         setPage(1);
-    }
+    };
 
     const sortedAndSearchedPosts = useMemo(() => {
         const filteredPosts = searchQuery
-            ? posts.filter(item => 
+            ? posts.filter(item =>
                 item.breeds[0].name.toLowerCase().includes(searchQuery.toLowerCase())
             )
             : posts;
@@ -70,7 +70,7 @@ const Posts = () => {
                     defaultVal='Sort by'
                     options={[
                         { value: 'name', name: 'Sort by name' },
-                        { value: 'breed_group', name: 'Sort by bred' },
+                        { value: 'breed_group', name: 'Sort by breed' },
                         { value: '', name: 'Without sort' }
                     ]}
                 ></MySelect>
